@@ -1,8 +1,7 @@
 import { Router } from 'express';
+import { getUsers } from './AuthController';
 const router = Router();
 
-router.get('/auth', (req, res) => {
-    res.send('Get all users from API v1');
-});
+router.get('/', getUsers);
 
 export default router;
