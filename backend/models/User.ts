@@ -18,7 +18,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false
     },
     email: {
       type: DataTypes.STRING,
@@ -28,11 +28,22 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      
     },
   },
   {
     sequelize,
     tableName: "users",
+    defaultScope: {
+      attributes: { exclude: ['password'] },
+    },
+    scopes: {
+      withPassword: {
+        attributes: {
+          include: ['password']
+        }
+      }
+    }
   }
 );
 
