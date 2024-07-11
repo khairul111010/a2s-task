@@ -30,10 +30,8 @@ const authApi = baseApi.enhanceEndpoints({addTagTypes: ['Auth']}).injectEndpoint
             }),
             invalidatesTags: ['Auth'],
             onQueryStarted(arg, {queryFulfilled, dispatch}) {
-                queryFulfilled.then((result) => {
-                    console.log(result);
-                    
-                    // setUserState(result, dispatch)
+                queryFulfilled.then((result) => {                    
+                    setUserState(result, dispatch)
                 })
             },
         }),

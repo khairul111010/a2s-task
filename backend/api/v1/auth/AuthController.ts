@@ -9,9 +9,7 @@ import { red } from "console-log-colors";
 export const register = expressAsyncHandler(
   async (req: Request, res: Response) => {
     try {
-      const { username, email, password } = req.body;
-      console.log(username,email,password);
-      
+      const { username, email, password } = req.body;      
       const newUser = await AuthService.register(username, email, password);
       res.status(201).json({status: "success", result: newUser});
     } catch (error) {
@@ -37,12 +35,3 @@ export const login = expressAsyncHandler(
     }
   }
 );
-
-
-export const me = expressAsyncHandler(async (req:Request, res: Response) => {
-  try {
-    
-  } catch (error) {
-    
-  }
-})
