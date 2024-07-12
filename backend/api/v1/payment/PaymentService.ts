@@ -14,7 +14,7 @@ const paymentIntent = async (amount: number, userId: number) => {
 const confirmPayment = async (paymentIntentId: string, userId: number) => {
   const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
     payment_method: "pm_card_visa",
-    return_url: "http://localhost:1234",
+    return_url: "http://localhost:5000",
   });
   const payment = await Payment.create({
     amount: paymentIntent.amount,
